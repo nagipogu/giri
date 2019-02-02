@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Tabs - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+  .myButton {
+	-moz-box-shadow: 0px 10px 14px -7px #000000;
+	-webkit-box-shadow: 0px 10px 14px -7px #000000;
+	box-shadow: 0px 10px 14px -7px #000000;
+	background-color: #540ab8;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #540ab8;
+	display: inline-block;
+	color: white;
+	font-family: arial;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #5b8a3c;
+	padding: 6px 51px;
+	vertical-align: middle;
+	letter-spacing: 1;
+	font-size: 20px;
+	cursor:pointer;
+}
+.myButton:hover {
+	background-color:#540ab8;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+  </style>
+  <script>
+      $(document).ready(function(){
+        $(function() {        
+            $( "#tabs" ).tabs();
+        });
+      });
+  </script>
+</head>
+<body>
+    <div id="tabs">     
+        <ul>
+            <li><a id="lnk1" href="#tabs-1">tab1</a></li>   
+            <li><a id="lnk2" href="#tabs-2">tab2</a></li>        
+        </ul>    
+        <div id="tabs-1">
+            <button type="button" id="clicktab2" onclick='$("#lnk2").trigger("click");'>
+                go to tab2
+            </button>  
+        </div>
+        <div id="tabs-2">tab2 content </div>
+     </div>
+</body>
+</html>
