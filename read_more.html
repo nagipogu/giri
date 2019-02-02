@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+  .container {
+  border: 1px solid #000;
+  min-width: 150px;
+  position: relative;
+  width: 30%;
+}
+.container .content {
+  max-height: 3.5em;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.container .label-container {
+  bottom: 1px;
+  position: absolute;
+  right: 0;
+}
+.container .label-container #read-more-label {
+  background-color: white;
+  color: red;
+  cursor: pointer;
+  float: right;
+}
+.container .label-container #read-more-label:before {
+  content: '[Read More]';
+}
+.container .label-container .shadow {
+  background: webkit-linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 80%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 80%);
+  padding: 0 30px;
+  transition: padding 0.5s linear;
+}
+.container #read-more-trigger {
+  display: none;
+}
+.container #read-more-trigger:checked ~ .label-container #read-more-label:before {
+  content: '[Read Less]';
+}
+.container #read-more-trigger:checked ~ .label-container .shadow {
+  padding: 0;
+}
+.container #read-more-trigger:checked ~ .content {
+  max-height: 100em;
+}
+h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    color: aqua;
+    text-overflow: clip;
+    width: 100px;
+}
+    </style>
+    <!-- <script>
+            $(document).ready(function() {
+                
+                $(".comment").shorten();
+            
+            });
+    </script> -->
+</head>
+<body>
+        <div class="container">
+            <input type="checkbox" name="read-more-trigger" id="read-more-trigger">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+            </div>
+            <div class="label-container">
+                <span class="shadow"></span>
+                <label for="read-more-trigger" id="read-more-label"></label>
+            </div>
+        </div>
+        <div>
+            <h3>Sometext</h3>
+        </div>
+</body>
+</html>
