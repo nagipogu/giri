@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Radio button: full validation example with javascript</title>
+        <script>
+            function report() {
+                var myradios = document.getElementsByName("MyRadio");
+                if (myradios[0].checked == true) {
+                    alert("Are you sure you want to Block");
+                } else if (myradios[1].checked == true) {
+                    alert("Are you sure you want to Spam");
+                }else if (myradios[2].checked == true) {
+                    alert("You selected others options");
+                } 
+                 else {
+                    // no checked
+                    var report = '<span style="color:red;">You must select your Report Option!</span><br /><br />';
+                    document.getElementById('reports').innerHTML = report;
+                    return false;
+                }
+                return true;
+            }
+
+         
+            function  report_msg() {
+                document.getElementById('reports').innerHTML = '';
+            }
+           
+        </script>
+    </head>
+    <body>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Report</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="report-main">
+                    <form action="" method="post">
+                        <input type="hidden" name="Review_ID" id="Review_ID">
+                        <input type="hidden" name="BrandPlace_ID" id="BrandPlace_ID">
+                        <input type="radio" name="MyRadio" value="Block" onclick="report_msg();"> Block<br>
+                        <input type="radio" name="MyRadio" value="Spam" onclick="report_msg();"> Spam<br>
+                        <input type="radio" name="MyRadio" value="Others" onclick="report_msg();"> Others<br><br>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div id="reports"></div>
+                <input type="submit" value="Submit" name="reportsubmit" class="btn btn-new" onclick="return report();">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </body>
+</html>
