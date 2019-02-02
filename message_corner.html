@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<style>
+.user_details{
+    float: right;
+    text-align: justify;
+    /* margin-top: 20px; */
+}
+.user_profile_image{
+    float: left;
+    
+}
+.user_name{
+    font-weight: bold;
+    margin-bottom: 10px !important;
+}
+.user_message{
+    max-width: auto;
+    background-color: white;
+    padding: 5px;
+    border-radius: 4px;
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    /* margin-top: 20px; */
+    
+}
+.user_message p{
+    text-align: justify;
+    
+}
+.designations{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.left:after{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -8.5px;
+    top: 7px;
+    height: 0px;
+    width: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid white;
+}
+
+.left:before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -9px;
+    top: 7px;
+    height: 0px;
+    width: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid black;
+}
+.clear
+            {
+                clear: both;
+            }
+</style>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 user_details_main">
+        <img class="rounded-circle user_profile_image" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Berlin_-_Aerial_view_-_2016.jpg" alt="user_profile" width="80" height="80">
+        <div class="user_details">
+            <p><span class="user_name">HEmavathi leo</span><br>
+            <span class="user_palce">Mysoor hendre konankakan Mysoor hendre</span></p>
+        </div>
+        <div class="designations">Mysoor hendre konankakan Mysoor hendre</div>
+    </div>
+    <div class="col-lg-7">
+        <p class="left user_message">It's these times when creating an Angular service makes sense. An angular service is simply a function that allows 
+            you to access its' defined properties and methods. It also helps keep your coding organized.</p>
+        <div class="clear"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
