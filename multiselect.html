@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="bootstrap-multiselect.css" type="text/css">
+        <script type="text/javascript" src="bootstrap-multiselect.js"></script>
+
+        <!-- ///////////////////// -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> 
+        <script>
+        $(document).ready(function() {
+            $('select').select2({
+            createTag: function (params) {
+                var term = $.trim(params.term);
+                if (term === '') {
+                return null;
+                }
+                return {
+                id: term,
+                text: term,
+                newTag: true 
+                }
+            }
+            });
+            $('#Check').on('change',function(){
+                var selectedValue = $(this).val();
+                  console.log(selectedValue);
+                  alert(selectedValue);
+            });
+       
+        });
+
+        </script>
+</head>
+<style>
+
+</style>
+<body>  
+<select class="form-control" multiple="multiple"  id="Check">
+    <option selected="selected" value="orange">orange</option>
+    <option value="white">white</option>
+    <option value="purple">purple</option>
+</select>
+      
+</body>
+</html>
+
+
+
