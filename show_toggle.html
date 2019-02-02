@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+.users_list_main {
+    max-width: 500px;
+    margin: auto;
+    text-align: center
+}
+.users_list_main div {
+    width: calc(60% / 3.5);
+    height: 60%;
+    background: #eee;
+    border: 1px solid #aaa;
+    float: left;
+    margin: 15px;
+    padding: 5px;
+
+}
+.users_list_main .toggle {
+    display: none
+}
+.users_list_main button {
+    display: block;
+    margin: 15px auto 0
+}
+.clearfix {
+    clear: both
+}
+.users_list_main button.more:before {
+    content: attr(data-more)
+}
+.users_list_main button.less:before {
+    content: attr(data-less)
+}
+
+</style>
+
+
+</head>
+<body>
+    <div class="users_list_main">
+        <div><img src=".jpg" width="65" height="60"></div>
+        <div><img src=".jpg" width="65" height="60"></div>
+        <div><img src=".jpg" width="65" height="60"></div>
+        <div class="toggle"><img src="" width="65" height="60"></div>
+        <div class="toggle"><img src="" width="65" height="60"></div>
+        <div class="toggle"><img src="" width="65" height="60"></div>
+        <section class="clearfix"></section>
+        <button class="more" data-more="More" data-less="less"></button>
+    </div>
+      <script>
+        $(document).ready(function(){
+            $(".users_list_main button").on("click", function() {
+                $(this).toggleClass("more less").siblings(".toggle").slideToggle(500);
+            });
+        });   
+      </script>
+
+
+</body>
+</html>
