@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scroll</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            }
+
+            form * + * {
+            margin-top: 20px;
+            }
+
+            #picker {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+            }
+
+            #previewWrapper {
+            width: 400px;
+            height: 300px;
+            padding: 20px;
+            position: relative;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAIUlEQVQYV2Ps7OyUYoCC8vLyZzA2I+kSMK0gGlk3I8kSACYxESZzRjBoAAAAAElFTkSuQmCC) repeat;
+            }
+            #previewWrapper img#preview {
+            transition: opacity 1s ease-in-out;
+            -o-object-fit: contain;
+                object-fit: contain;
+            width: 100%;
+            height: 100%;
+            }
+            #previewWrapper[data-isLoading="true"]:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "";
+            height: 4px;
+            width: 30px;
+            background-color: #18c96e;
+            -webkit-animation: load 3s ease-out;
+                    animation: load 3s ease-out;
+            }
+            #previewWrapper[data-isLoading="true"] img#preview {
+            -webkit-filter: grayscale(100%);
+                    filter: grayscale(100%);
+            opacity: 0.5;
+            cursor: wait;
+            -webkit-animation: fadein 0.3s ease-out;
+                    animation: fadein 0.3s ease-out;
+            }
+
+            @-webkit-keyframes load {
+            0% {
+                width: 0;
+                height: 4px;
+                opacity: 1;
+            }
+            90% {
+                width: 100%;
+                height: 4px;
+                opacity: 1;
+            }
+            100% {
+                height: 0;
+                width: 100%;
+                opacity: 0;
+            }
+            }
+
+            @keyframes load {
+            0% {
+                width: 0;
+                height: 4px;
+                opacity: 1;
+            }
+            90% {
+                width: 100%;
+                height: 4px;
+                opacity: 1;
+            }
+            100% {
+                height: 0;
+                width: 100%;
+                opacity: 0;
+            }
+            }
+            /** Used to hide the flash of colored imagery  **/
+            @-webkit-keyframes fadein {
+            from {
+                opacity: 0.0;
+            }
+            to {
+                opacity: 0.5;
+            }
+            }
+            @keyframes fadein {
+            from {
+                opacity: 0.0;
+            }
+            to {
+                opacity: 0.5;
+            }
+            }
+
+        </style>
+            
+    </head>
+    <body>
+            <!-- <form> -->
+              <input id="picker" type="file" accept="image/png, image/jpg, image/jpeg"/>
+              <label class="btn btn-primary btn-small" for="picker">Replace image with...</label>
+              <div id="previewWrapper" data-isLoading="false"><img id="preview" src="//placekitten.com/400/300" alt="preview image"/></div>
+            <!-- </form> -->
+
+        <script>
+
+            document.getElementById("picker").addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) {
+                let reader = new FileReader()
+                
+                reader.onload = (e) => {
+                document.getElementById("preview").setAttribute("src", e.target.result)
+                document.getElementById("previewWrapper").setAttribute("data-isLoading", "true")
+                }
+                
+                reader.readAsDataURL(e.target.files[0])
+                
+                /* this next function is only to remove the data attribute after some time. */
+                setTimeout(() => {
+                document.getElementById("previewWrapper").setAttribute("data-isLoading", "false")
+                }, 3000)
+            }
+            })
+         
+        </script>
+    </body>
+</html>
